@@ -1,7 +1,13 @@
 #pragma once
 
+#include "Board.h"
+#include "Deck.h"
+#include "GameState.h"
 #include "Player.h"
+#include "Solution.h"
 
+#include <memory>
+#include <optional>
 #include <vector>
 
 class Game {
@@ -15,5 +21,9 @@ private:
     void printWelcome() const;
     void printPlayers() const;
 
-    std::vector<Player> players_;
+    Deck deck_;
+    Board board_;
+    GameState state_;
+    std::optional<Solution> envelope_;
+    std::vector<std::unique_ptr<Player>> players_;
 };

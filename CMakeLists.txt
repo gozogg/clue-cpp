@@ -5,11 +5,23 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(clue
-    src/main.cpp
+set(CLUE_SOURCES
     src/Game.cpp
     src/Player.cpp
+    src/HumanPlayer.cpp
+    src/AIPlayer.cpp
     src/Card.cpp
+    src/Deck.cpp
+    src/Solution.cpp
+    src/Room.cpp
+    src/Board.cpp
+    src/GameState.cpp
+    src/DeductionEngine.cpp
+)
+
+add_executable(clue
+    src/main.cpp
+    ${CLUE_SOURCES}
 )
 
 target_include_directories(clue PRIVATE include)
@@ -18,8 +30,7 @@ enable_testing()
 
 add_executable(clue_tests
     tests/test_main.cpp
-    src/Player.cpp
-    src/Card.cpp
+    ${CLUE_SOURCES}
 )
 
 target_include_directories(clue_tests PRIVATE include)

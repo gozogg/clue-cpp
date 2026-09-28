@@ -1,5 +1,8 @@
 #include "Game.h"
 
+#include "AIPlayer.h"
+#include "HumanPlayer.h"
+
 #include <iostream>
 
 Game::Game() {
@@ -8,10 +11,11 @@ Game::Game() {
 
 void Game::setup() {
     // TODO:
-    // 1. Create the deck
-    // 2. Create the solution
-    // 3. Create players
-    // 4. Shuffle/deal cards
+    // 1. Shuffle the deck
+    // 2. Draw one character, one weapon, and one room into envelope_
+    // 3. Create human and AI players
+    // 4. Deal the remaining cards
+    // 5. Place characters on the board
 }
 
 void Game::run() {
@@ -30,7 +34,7 @@ void Game::printWelcome() const {
 void Game::printPlayers() const {
     std::cout << "\nPlayers: " << players_.size() << "\n";
 
-    for (const Player& player : players_) {
-        std::cout << " - " << player.getName() << "\n";
+    for (const auto& player : players_) {
+        std::cout << " - " << player->getName() << "\n";
     }
 }

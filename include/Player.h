@@ -7,6 +7,8 @@
 
 class Player {
 public:
+    virtual ~Player() = default;
+
     explicit Player(std::string name);
 
     const std::string& getName() const;
